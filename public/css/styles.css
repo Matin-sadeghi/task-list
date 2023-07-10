@@ -1,5 +1,6 @@
 .gradient-custom-2 {
   /* fallback for old browsers */
+  min-height: 100vh;
   background: #7e40f6 !important;
 
   /* Chrome 10-25, Safari 5.1-6 */
@@ -13,7 +14,7 @@
   background: linear-gradient(
     to right,
     rgba(126, 64, 246, 1),
-    rgba(80, 139, 252, 1) 
+    rgba(80, 139, 252, 1)
   ) !important;
 }
 
@@ -26,10 +27,8 @@
   box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03) !important;
 }
 
-
 .clock-loader {
- 
-  --clock-color: #ffffff;;
+  --clock-color: #ffffff;
   --clock-width: 4rem;
   --clock-radius: calc(var(--clock-width) / 2);
   --clock-minute-length: calc(var(--clock-width) * 0.4);
@@ -45,7 +44,8 @@
   border-radius: 50%;
   margin: 5px;
 }
-.clock-loader::before, .clock-loader::after {
+.clock-loader::before,
+.clock-loader::after {
   position: absolute;
   content: "";
   top: calc(var(--clock-radius) * 0.25);
@@ -64,8 +64,8 @@
   height: var(--clock-hour-length);
   animation-duration: 15s;
 }
-.error-msg{
-  color: #fff764 !important
+.error-msg {
+  color: #fff764 !important;
 }
 
 @keyframes spin {
