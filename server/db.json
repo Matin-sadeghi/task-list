@@ -5,15 +5,14 @@
       "body": "test-body",
       "priority": "High",
       "member": "1",
-      "id": 1,
-      "completed": false
+      "id": 1
     }
   ],
   "users": [
     {
       "username": "test-username",
       "img": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp",
-      "status": "active",
+      "status": "Inactive",
       "role": "Admin",
       "id": 1
     }

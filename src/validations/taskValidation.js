@@ -1,12 +1,14 @@
 import * as Yup from "yup";
 
 export const taskSchema = Yup.object().shape({
-  summary: Yup.string().required("must enter summary"),
-  body: Yup.string().required("must enter body"),
-  priority: Yup.mixed().oneOf(
-    ["High", "Low","Middle"],
-    "should one of High Middle Low"
-  ).required("must enter priority"),
+  summary: Yup.string().required("You should enter the summary"),
+  body: Yup.string().required("You should enter the body"),
+  priority: Yup.mixed()
+    .oneOf(
+      ["High", "Low", "Middle"],
+      "You should choose one of High, Middle, or Low"
+    )
+    .required("You should enter the priority"),
 
-  member: Yup.string().required("must enter member"),
+  member: Yup.string().required("You should enter the member"),
 });
