@@ -27,7 +27,7 @@ const Tasks = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          setLogin(true);
+          setLoading(true);
           const { status } = await deleteMember(memberId);
 
           if (status === 200) {
@@ -37,17 +37,17 @@ const Tasks = () => {
                 setTasks((draft) => draft.filter((d) => d.id !== task.id));
               }
             });
-      
+
             toast.error(" member has been deleted.", { icon: "🗑️" });
 
             setMembers((draft) =>
               draft.filter((task) => task.id !== parseInt(memberId))
             );
           }
-          setLogin(false);
+          setLoading(false);
         } catch (err) {
           console.log(err);
-          setLogin(false);
+          setLoading(false);
         }
       }
     });
@@ -65,7 +65,7 @@ const Tasks = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          setLogin(true);
+          setLoading(true);
           const { status, data } = await updateMember(
             {
               ...member,
@@ -74,8 +74,9 @@ const Tasks = () => {
             memberId
           );
           if (status === 200) {
-   
-            toast.success("Your member status has been changed.",{icon:"👍"})
+            toast.success("Your member status has been changed.", {
+              icon: "👍",
+            });
             const memberIndex = members.findIndex(
               (member) => parseInt(member.id) === parseInt(memberId)
             );
@@ -84,16 +85,16 @@ const Tasks = () => {
               draft[memberIndex] = data;
             });
           }
-          setLogin(false);
+          setLoading(false);
         } catch (err) {
           console.log(err);
-          setLogin(false);
+          setLoading(false);
         }
       }
     });
   };
 
-  const [login, setLogin] = useImmer(false);
+  const [loading, setLoading] = useImmer(false);
 
   return (
     <>
@@ -108,11 +109,12 @@ const Tasks = () => {
           </tr>
         </thead>
         <tbody>
-          {login ? (
-            <>
-              {" "}
-              <Loading />{" "}
-            </>
+          {loading ? (
+            <tr>
+              <td colSpan={4}>
+                <Loading />{" "}
+              </td>
+            </tr>
           ) : (
             members.map((member) => (
               <Member

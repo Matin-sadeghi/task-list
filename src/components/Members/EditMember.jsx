@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 import Loading from "../Loading";
 import { MemberHeader } from "..";
 import { getMember, updateMember } from "../../services/memberServices";
@@ -37,7 +37,7 @@ const EditMember = () => {
           draft[memberIndex] = data;
         });
         setLoading(false);
-        toast.info("your member has been updated ! ",{icon:"🔧"})
+        toast.info("your member has been updated ! ", { icon: "🔧" });
         navigate("/members");
       }
     } catch (err) {
@@ -119,7 +119,7 @@ const EditMember = () => {
               </label>
               <Field as="select" name="status" className="form-select">
                 <option value="">Choose...</option>
-                <option value="active">Active</option>
+                <option value="Active">Active</option>
                 <option value="Inactive">InActive</option>
               </Field>
               <ErrorMessage

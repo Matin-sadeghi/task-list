@@ -84,7 +84,7 @@ const AddMember = () => {
               </label>
               <Field as="select" name="status" className="form-select">
                 <option value="">Choose...</option>
-                <option value="active">Active</option>
+                <option value="Active">Active</option>
                 <option value="Inactive">InActive</option>
               </Field>
               <ErrorMessage

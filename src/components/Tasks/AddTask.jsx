@@ -21,6 +21,7 @@ const AddTask = () => {
             body: "",
             priority: "",
             member: "",
+            completed: false,
           }}
           validationSchema={taskSchema}
           onSubmit={(values) => {
@@ -38,7 +39,10 @@ const AddTask = () => {
                 placeholder="Task Summary"
                 name="summary"
               />
-              <ErrorMessage name="summary" render={msg => <div className="error-msg">{msg}</div>} />
+              <ErrorMessage
+                name="summary"
+                render={(msg) => <div className="error-msg">{msg}</div>}
+              />
             </div>
 
             <div className="col-12">
@@ -52,7 +56,10 @@ const AddTask = () => {
                 cols="30"
                 rows="10"
               />
-              <ErrorMessage name="body" render={msg => <div className="error-msg">{msg}</div>} />
+              <ErrorMessage
+                name="body"
+                render={(msg) => <div className="error-msg">{msg}</div>}
+              />
             </div>
 
             <div className="col-md-4">
@@ -70,7 +77,10 @@ const AddTask = () => {
                 <option value="Middle">Middle priority</option>
                 <option value="Low">Low priority</option>
               </Field>
-              <ErrorMessage name="priority" render={msg => <div className="error-msg">{msg}</div>} />
+              <ErrorMessage
+                name="priority"
+                render={(msg) => <div className="error-msg">{msg}</div>}
+              />
             </div>
 
             <div className="col-md-4">
@@ -90,9 +100,11 @@ const AddTask = () => {
                   </option>
                 ))}
               </Field>
-              <ErrorMessage name="member" render={msg => <div className="error-msg">{msg}</div>}  />
+              <ErrorMessage
+                name="member"
+                render={(msg) => <div className="error-msg">{msg}</div>}
+              />
             </div>
-            
 
             <div className="col-12">
               <button type="submit" className="btn btn-primary me-1">

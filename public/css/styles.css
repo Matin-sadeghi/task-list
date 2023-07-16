@@ -28,6 +28,7 @@
 }
 
 .clock-loader {
+  margin: 10px auto !important;
   --clock-color: #ffffff;
   --clock-width: 4rem;
   --clock-radius: calc(var(--clock-width) / 2);

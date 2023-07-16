@@ -4,7 +4,8 @@ import { TaskContext } from "./../../context/taskContext";
 import { Task, TaskHeader } from "..";
 
 const Tasks = () => {
-  const { tasks,deleteTask, loading,members,completedTask } = useContext(TaskContext);
+  const { tasks, deleteTask, loading, members, completedTask } =
+    useContext(TaskContext);
 
   return (
     <>
@@ -21,8 +22,11 @@ const Tasks = () => {
         <tbody>
           {loading ? (
             <>
-              {" "}
-              <Loading />{" "}
+              <tr>
+                <td colSpan={4}>
+                  <Loading />{" "}
+                </td>
+              </tr>
             </>
           ) : (
             tasks.map((task) => (
