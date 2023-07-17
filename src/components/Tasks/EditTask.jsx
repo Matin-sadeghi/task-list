@@ -7,7 +7,7 @@ import { TaskHeader } from "..";
 import { TaskContext } from "./../../context/taskContext";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { taskSchema } from "../../validations/taskValidation";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 import { useImmer } from "use-immer";
 const EditTask = () => {
   const { loading, setLoading, members, tasks, setTasks } =
@@ -46,7 +46,7 @@ const EditTask = () => {
         setTasks((draft) => {
           draft[taskIndex] = data;
         });
-        toast.info("your task has been updated ! ",{icon:"🔧"})
+        toast.info("your task has been updated ! ", { icon: "🔧" });
         navigate("/task-list");
       }
     } catch (err) {
@@ -67,6 +67,7 @@ const EditTask = () => {
             body: task.body,
             priority: task.priority,
             member: task.member,
+            completed: task.completed,
           }}
           validationSchema={taskSchema}
           onSubmit={(values) => {

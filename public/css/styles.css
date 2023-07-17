@@ -74,3 +74,12 @@
     transform: rotate(1turn);
   }
 }
+
+.notFound {
+  text-align: center;
+  margin-top: 3px;
+}
+.notFoundLink {
+  color: "whitesmoke" !important;
+  text-decoration: none;
+}

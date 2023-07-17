@@ -23,6 +23,8 @@ import {
   getAllTasks,
   updateTask,
 } from "./services/taskServices";
+import MainLayout from "./components/MainLayout";
+import NotFound from "./components/NotFound.jsx";
 
 function App() {
   const navigate = useNavigate();
@@ -106,7 +108,7 @@ function App() {
             });
             toast.success("Your task has been completed.", { icon: "👍" });
 
-           // Swal.fire("Completed!", "Your task has been completed.", "success");
+            // Swal.fire("Completed!", "Your task has been completed.", "success");
           }
           setLoading(false);
         } catch (err) {
@@ -150,56 +152,21 @@ function App() {
         createTask: createNewTask,
       }}
     >
-      <body>
-        <ToastContainer rtl={false} theme="colored" />
-
-        <section className="gradient-custom-2">
-          <div className="container py-5">
-            <div className="row d-flex justify-content-center align-items-center">
-              <div className="col-md-12 col-xl-10">
-                <div className="card mask-custom">
-                  <div className="card-body p-4 text-white">
-                    <Routes>
-                      <Route path="/" element={<Navigate to="/task-list" />} />
-                      <Route path="/task-list" element={<Tasks />} />
-                      <Route path="/task-list/add" element={<AddTask />} />
-                      <Route path="/task-list/:taskId" element={<ViewTask />} />
-                      <Route
-                        path="/task-list/edit/:taskId"
-                        element={<EditTask />}
-                      />
-                      <Route path="/members" element={<Members />} />
-                      <Route path="/members/add" element={<AddMember />} />
-                      <Route
-                        path="/members/edit/:memberId"
-                        element={<EditMember />}
-                      />
-                      <Route
-                        path="/members/:memberId"
-                        element={<ViewMember />}
-                      />
-
-                      <Route
-                        path="*"
-                        element={
-                          <>
-                            <h1 style={{ textAlign: "center" }}>not found</h1>
-                          </>
-                        }
-                      />
-                    </Routes>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-          integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-          crossOrigin="anonymous"
-        ></script>
-      </body>
+      <ToastContainer rtl={false} theme="colored" />
+      <MainLayout>
+        <Routes>
+          <Route path="/" element={<Navigate to="/task-list" />} />
+          <Route path="/task-list" element={<Tasks />} />
+          <Route path="/task-list/add" element={<AddTask />} />
+          <Route path="/task-list/:taskId" element={<ViewTask />} />
+          <Route path="/task-list/edit/:taskId" element={<EditTask />} />
+          <Route path="/members" element={<Members />} />
+          <Route path="/members/add" element={<AddMember />} />
+          <Route path="/members/edit/:memberId" element={<EditMember />} />
+          <Route path="/members/:memberId" element={<ViewMember />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </MainLayout>
     </TaskContext.Provider>
   );
 }
